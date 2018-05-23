@@ -85,9 +85,9 @@ desired effect
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">HEADER</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="{{ url('/') }}"><i class="fa fa-link"></i> <span>Home</span></a></li>
-                <li><a href="{{ url('jurusan') }}"><i class="fa fa-link"></i> <span>Jurusan</span></a></li>
-                <li><a href="{{ url('mahasiswa') }}"><i class="fa fa-link"></i> <span>Mahasiswa</span></a></li>
+                <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{ url('/') }}"><i class="fa fa-link"></i> <span>Home</span></a></li>
+                <li class="{{ request()->is('jurusan') || request()->is('jurusan/*') ? 'active' : '' }}"><a href="{{ url('jurusan') }}"><i class="fa fa-link"></i> <span>Jurusan</span></a></li>
+                <li class="{{ request()->is('mahasiswa') || request()->is('mahasiswa/*') ? 'active' : '' }}"><a href="{{ url('mahasiswa') }}"><i class="fa fa-link"></i> <span>Mahasiswa</span></a></li>
                 <!-- /.sidebar-menu -->
             </ul>
         </section>
