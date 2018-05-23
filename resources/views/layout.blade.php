@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home</title>
+    <title>{{ $header_title or 'Home' }}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="{{ asset('assets/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
@@ -85,8 +85,8 @@ desired effect
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">HEADER</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Home</span></a></li>
-                <li><a href="#"><i class="fa fa-link"></i> <span>Jurusan</span></a></li>
+                <li class="active"><a href="{{ url('/') }}"><i class="fa fa-link"></i> <span>Home</span></a></li>
+                <li><a href="{{ url('jurusan') }}"><i class="fa fa-link"></i> <span>Jurusan</span></a></li>
                 <li><a href="#"><i class="fa fa-link"></i> <span>Mahasiswa</span></a></li>
                 <!-- /.sidebar-menu -->
             </ul>
@@ -99,7 +99,7 @@ desired effect
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Home
+                {{ $header_title or 'Home' }}
             </h1>
         </section>
 

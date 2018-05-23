@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'WelcomeController@panggilHalamanHome');
+
+Route::resource('jurusan', 'JurusanController');
