@@ -87,7 +87,7 @@ desired effect
                 <!-- Optionally, you can add icons to the links -->
                 <li class="active"><a href="{{ url('/') }}"><i class="fa fa-link"></i> <span>Home</span></a></li>
                 <li><a href="{{ url('jurusan') }}"><i class="fa fa-link"></i> <span>Jurusan</span></a></li>
-                <li><a href="#"><i class="fa fa-link"></i> <span>Mahasiswa</span></a></li>
+                <li><a href="{{ url('mahasiswa') }}"><i class="fa fa-link"></i> <span>Mahasiswa</span></a></li>
                 <!-- /.sidebar-menu -->
             </ul>
         </section>
