@@ -58,3 +58,12 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Cara Install
+
+- Download / Clone repository ini
+- Buka Command Prompt atau Terminal arahkan ke folder ini
+- Jalankan perintah **"composer install"** pada Command Prompt atau Terminal
+- Ubah setelan **".env"** terlebih dahulu atur sesuai informasi server nya
+- Jalankan **"php artisan migrate"** untuk membuat table database nya jika belum ada
+- Jalankan melalui localhost atau 127.0.0.1:8000 jika menggunakan **php artisan serve**
