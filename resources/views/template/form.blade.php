@@ -9,14 +9,14 @@
                             <label for="inputText1" class="col-sm-2 control-label">Input Text 1</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputText1" placeholder="Input Text 1">
+                                <input type="text" class="form-control" id="inputText1" placeholder="Input Text 1" name="">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputText2" class="col-sm-2 control-label">Input Text 2</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputText2" placeholder="Input Text 2">
+                                <input type="text" class="form-control" id="inputText2" placeholder="Input Text 2" name="">
                             </div>
                         </div>
                         <div class="form-group">
@@ -30,6 +30,26 @@
                                     <option>option 4</option>
                                     <option>option 5</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="radioButton" class="col-sm-2 control-label">Radio Button</label>
+
+                            <div class="col-sm-5">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="radioButton1" value="option1" checked="1">
+                                        Option 1
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="radioButton1" value="option1" checked="2">
+                                        Option 2
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>

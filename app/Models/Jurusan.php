@@ -14,4 +14,19 @@ class Jurusan extends Model
      * @var array
      */
     protected $fillable = ['nama_jurusan'];
+
+//    protected static function boot()
+//    {
+//        parent::boot();
+//
+//        static::deleting(function ($model) {
+//            $model->mahasiswa()->delete();
+//        });
+//
+//    }
+
+    public function mahasiswa()
+    {
+        return $this->hasMany(Mahasiswa::class);
+    }
 }

@@ -112,7 +112,13 @@ class JurusanController extends Controller
      */
     public function destroy($id)
     {
-        Jurusan::find($id)->delete();
+//        Jurusan::find($id)->delete();
+
+        $jurusan = Jurusan::find($id);
+
+        $jurusan->mahasiswa()->delete();
+
+        $jurusan->delete();
 
         request()->session()->flash('status', 'Data berhasil dihapus');
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jurusan;
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
@@ -14,6 +16,7 @@ class MahasiswaController extends Controller
     public function index()
     {
         $data['header_title'] = 'Mahasiswa';
+        $data['mahasiswa'] = Mahasiswa::paginate(10);
 
         return view('mahasiswa.list', $data);
     }
@@ -26,6 +29,7 @@ class MahasiswaController extends Controller
     public function create()
     {
         $data['header_title'] = 'Tambah Mahasiswa';
+        $data['jurusan'] = Jurusan::all();
 
         return view('mahasiswa.form', $data);
     }
@@ -38,7 +42,26 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'jurusan_id' => 'required|integer',
+            'nama' => 'required',
+            'nim' => 'required|digits:11',
+            'jenis_kelamin' => 'required'
+        ]);
+
+        $requestData = $request->all();
+
+        $mahasiswa = new Mahasiswa();
+        $mahasiswa->jurusan_id = $requestData['jurusan_id'];
+        $mahasiswa->nama = $requestData['nama'];
+        $mahasiswa->nim = $requestData['nim'];
+        $mahasiswa->jenis_kelamin = $requestData['jenis_kelamin'];
+        //        $mahasiswa->fill($requestData);
+        $mahasiswa->save();
+
+        request()->session()->flash('status', 'Data berhasil disimpan');
+
+        return redirect()->route('mahasiswa.index');
     }
 
     /**
@@ -60,7 +83,11 @@ class MahasiswaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['header_title'] = 'Ubah Mahasiswa';
+        $data['jurusan'] = Jurusan::all();
+        $data['data'] = Mahasiswa::find($id);
+
+        return view('mahasiswa.form', $data);
     }
 
     /**
@@ -72,7 +99,27 @@ class MahasiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'jurusan_id' => 'required|integer',
+            'nama' => 'required',
+            'nim' => 'required|digits:11',
+            'jenis_kelamin' => 'required'
+        ]);
+
+        $requestData = $request->all();
+
+        $mahasiswa = Mahasiswa::findOrFail($id);
+        $mahasiswa->jurusan_id = $requestData['jurusan_id'];
+        $mahasiswa->nama = $requestData['nama'];
+        $mahasiswa->nim = $requestData['nim'];
+        $mahasiswa->jenis_kelamin = $requestData['jenis_kelamin'];
+
+//        $mahasiswa->fill($requestData);
+        $mahasiswa->save();
+
+        request()->session()->flash('status', 'Data berhasil diperbarui');
+
+        return redirect()->route('mahasiswa.index');
     }
 
     /**
@@ -83,6 +130,10 @@ class MahasiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Mahasiswa::find($id)->delete();
+
+        request()->session()->flash('status', 'Data berhasil dihapus');
+
+        return redirect()->route('mahasiswa.index');
     }
 }

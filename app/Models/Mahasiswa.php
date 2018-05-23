@@ -14,4 +14,8 @@ class Mahasiswa extends Model
      * @var array
      */
     protected $fillable = ['jurusan_id', 'nama', 'nim', 'jenis_kelamin'];
+
+    public function jurusan() {
+        return $this->belongsTo('App\Models\Jurusan');
+    }
 }
